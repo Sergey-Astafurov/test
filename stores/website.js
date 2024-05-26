@@ -19,8 +19,6 @@ export const useWebsiteStore = defineStore('websiteStore', () => {
     userList.value.push(...users);
   };
   async function getPostList() { // спарсить данные
-    postList.value = []
-    userList.value = []
     const posts = await getPostsAPI()
     const users = await getUsersAPI()
     getPost(posts, users);

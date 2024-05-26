@@ -1,13 +1,16 @@
 <template>
   <div class="container mx-auto justify-center py-6 flex flex-wrap">
     <SortPost v-model="website.selected" :userList="website.userList" @change="website.sortedList" />
-    <PostList>
-      <PostItem
-        v-for="(postItem, index) in website.sortedList()"
-        :key="postItem.id"
-        :postItem="postItem"
-      />
-    </PostList>
+    <keep-alive>
+
+      <PostList>
+        <PostItem
+          v-for="(postItem, index) in website.sortedList()"
+          :key="postItem.id"
+          :postItem="postItem"
+        />
+      </PostList>
+    </keep-alive>
     <ThePagination @skip="website.skip($event)" />
   </div>
 </template>
