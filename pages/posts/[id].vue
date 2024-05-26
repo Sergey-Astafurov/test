@@ -1,23 +1,7 @@
 <template>
   <div class="container mx-auto font-mono">
-    <div class="text-xl">{{ post.userId }} : {{ post.username }}</div>
-    <form class="flex flex-col gap-4" action="" @submit.prevent="submit">
-      <h3>Title</h3>
-      <input
-        class="border-2 p-4 text-xl border-pink-600"
-        v-model="post.title"
-        type="text"
-      />
-      <h3>Body</h3>
-      <textarea
-        class="border-2 p-4 text-xl border-pink-600"
-        v-model="post.body"
-        cols="10"
-        rows="10"
-        type="text"
-      ></textarea>
-      <button class="p-4 border-4 border-purple-950">Сохранить</button>
-    </form>
+    <div class="text-xl">{{post.id }} : {{ post.username }}</div>
+    <FormPost @submit="submit" v-model:title="post.title" v-model:body="post.body"/>
   </div>
 </template>
 
